@@ -6,6 +6,8 @@ import com.github.games647.fastlogin.bukkit.FastLoginBukkit;
 import com.github.games647.fastlogin.bukkit.ForceLoginTask;
 import com.github.games647.fastlogin.bukkit.PlayerSession;
 
+import java.util.logging.Level;
+
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -32,7 +34,10 @@ public class BukkitJoinListener implements Listener {
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerLogin(PlayerLoginEvent loginEvent) {
+        plugin.getLogger().info("NOTICED JOIN");
+        plugin.getLogger().log(Level.INFO, "SERVER FULLY STARTED: {0}", plugin.isServerFullyStarted());
         if (loginEvent.getResult() == Result.ALLOWED && !plugin.isServerFullyStarted()) {
+            plugin.getLogger().info("SENDING KICK MESSAGE");
             loginEvent.disallow(Result.KICK_OTHER, "§cServer is not fully started yet. Please retry");
         }
     }

@@ -61,6 +61,7 @@ public class StartPacketListener extends PacketAdapter {
      */
     @Override
     public void onPacketReceiving(PacketEvent packetEvent) {
+        plugin.getLogger().info("UPDATED SERVER STATUS ON PACKET LOGIN");
         plugin.setServerStarted();
 
         Player player = packetEvent.getPlayer();

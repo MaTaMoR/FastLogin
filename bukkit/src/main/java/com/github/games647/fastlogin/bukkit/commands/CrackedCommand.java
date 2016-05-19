@@ -29,7 +29,7 @@ public class CrackedCommand implements CommandExecutor {
                 return true;
             }
 
-            final Player player = (Player) sender;
+            Player player = (Player) sender;
 //            UUID uuid = player.getUniqueId();
 
             if (plugin.isBungeeCord()) {
